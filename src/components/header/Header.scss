@@ -1,0 +1,80 @@
+@import './../variables';
+
+.Header {
+  background-color: $bg-color;
+
+  &__hero {
+    position: relative;
+    width: auto;
+    text-align: center;
+  }
+
+  &__img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  &__heading {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &_main {
+      font-family: Blanka;
+      letter-spacing: 10px;
+      font-size: 4rem;
+      margin: 0.5em;
+      color: #92a5de;
+      text-transform: uppercase;
+      // https://css-tricks.com/almanac/properties/t/text-shadow/
+      text-shadow: 0px 0px 0 rgb(137, 156, 213),
+        1px 1px 0 rgb(129, 148, 205),
+        2px 2px 0 rgb(120, 139, 196),
+        3px 3px 0 rgb(111, 130, 187),
+        4px 4px 0 rgb(103, 122, 179),
+        5px 5px 0 rgb(94, 113, 170),
+        6px 6px 0 rgb(85, 104, 161),
+        7px 7px 0 rgb(76, 95, 152),
+        8px 8px 0 rgb(68, 87, 144),
+        9px 9px 0 rgb(59, 78, 135),
+        10px 10px 0 rgb(50, 69, 126),
+        11px 11px 0 rgb(42, 61, 118),
+        12px 12px 0 rgb(33, 52, 109),
+        13px 13px 0 rgb(24, 43, 100),
+        14px 14px 0 rgb(15, 34, 91),
+        15px 15px 0 rgb(7, 26, 83),
+        16px 16px 0 rgb(-2, 17, 74),
+        17px 17px 0 rgb(-11, 8, 65),
+        18px 18px 0 rgb(-19, 0, 57),
+        19px 19px 0 rgb(-28, -9, 48),
+        20px 20px 0 rgb(-37, -18, 39),
+        21px 21px 20px rgba(0, 0, 0, 1),
+        21px 21px 1px rgba(0, 0, 0, 0.5),
+        0px 0px 20px rgba(0, 0, 0, .2);
+    }
+
+    &_span {
+      display: block;
+      font-family: 'Permanent Marker', cursive;
+
+      &--purple {
+        font-size: 3rem;
+        color: $purple;
+      }
+
+      &--green {
+        font-size: 2rem;
+        color: $green;
+      }
+
+    }
+
+    .rotate {
+      transform: rotate(-4deg);
+    }
+
+
+  }
+}
