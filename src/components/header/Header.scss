@@ -24,8 +24,8 @@
     &_main {
       font-family: Blanka;
       letter-spacing: 10px;
-      font-size: 4rem;
-      margin: 0.5em;
+      font-size: 6em;
+      margin: 1em;
       color: #92a5de;
       text-transform: uppercase;
       // https://css-tricks.com/almanac/properties/t/text-shadow/
@@ -60,12 +60,12 @@
       font-family: 'Permanent Marker', cursive;
 
       &--purple {
-        font-size: 3rem;
+        font-size: 4.625em;
         color: $purple;
       }
 
       &--green {
-        font-size: 2rem;
+        font-size: 3.25em;
         color: $green;
       }
 

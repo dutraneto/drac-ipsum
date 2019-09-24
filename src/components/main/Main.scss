@@ -1,0 +1,104 @@
+@import '../variables';
+
+.Main {
+  padding: 7rem 15%;
+  width: 100%;
+  height: 100vh;
+  background-color: $bg-color;
+  position: relative;
+
+  h2 {
+    text-align: center;
+    color: $green;
+    font-family: Blanka;
+    font-size: 3.75rem;
+    letter-spacing: 3px;
+    z-index: 10;
+  }
+
+  .form {
+    margin-top: 6rem;
+    height: auto;
+
+    &__input {
+      display: flex;
+    }
+
+    &__group {
+      width: 25%;
+      margin-bottom: 5px;
+
+      &:not(:last-child) {
+        margin-right: 5px;
+      }
+
+      &-text {
+        display: none;
+      }
+
+      &-label {
+        cursor: pointer;
+        transition: all 0.3s ease-out;
+
+        &:hover {
+          background: $purple;
+          color: $bg-color;
+        }
+      }
+
+      &-label,
+      &-number {
+        padding: 1.5rem 0;
+        display: flex;
+        justify-content: center;
+        border: 3px solid $purple;
+        color: $green;
+        font-size: 1.5em;
+        font-weight: bold;
+
+        &:focus {
+          outline: solid darken($purple, 10%) 3px !important;
+        }
+      }
+
+      &-number {
+        width: 100%;
+        text-align: center;
+        background-color: transparent;
+      }
+
+      .active {
+        background-color: $purple;
+        color: $bg-color;
+      }
+    }
+
+    &__results {
+      padding: 2rem;
+      overflow: scroll;
+      width: 100%;
+      height: 300px;
+      border: 3px solid $purple;
+    }
+  }
+}
+
+.btn-copy {
+  width: calc(25% - 6px);
+  background: $green;
+  padding: 1.5rem 0;
+  border: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  transform: translate(3px, -3px);
+  cursor: pointer;
+  font-size: 1.2rem;
+
+  &:focus {
+    outline: solid darken($purple, 10%) 3px !important;
+  }
+
+  &:hover {
+    background: lighten($green, 5%);
+  }
+}
