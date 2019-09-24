@@ -53,7 +53,7 @@ const drac = {
     "You're a Drac, I'm a human. ",
   ],
 
-  words: ["Oronfo", "Doranghr", "Dorangohoh", "Gruuuu", "Dotoranguhhh", "Orhhh", "Growwhling", "Hhhhh", "Gravansarrh", "Gravasarrrh", "Xchigrahrn", "Dahhh!!!", "Foodrrp", "Adhriudrad", "Drackulh", "Dracgruhha", "Dractoranghruu", "Dractipuhrr", "Zerkill", "Nehsayyy", "Nehsay!", "Shwoo", "Drihaghribar", "Darhcofort", "Drah", "Drehhh", "Rorhsawhhh!", "Kazoo", "Drandahhh", "Drandahhhhr", "Mahtashi", "Tugarhhh", "Pooguh", "Drougoh!!!", "Nuvoo", "Tenuvohh", "Zirkih", "Zerkiproof", "Dilubohhhh", "Zotain", "Mosakah", "Zammis", "Coz", "Vasso", "Deriba", "Chigravorr", "Yesaly", "Trahs", "Telo", "Tras", "Vatran", "Dilubohhh"]
+  words: ["Oronfo ", "Doranghr ", "Dorangohoh ", "Gruuuu ", "Dotoranguhhh ", "Orhhh ", "Growwhling ", "Hhhhh ", "Gravansarrh ", "Gravasarrrh ", "Xchigrahrn ", "Dahhh!!! ", "Foodrrp ", "Adhriudrad ", "Drackulh ", "Dracgruhha ", "Dractoranghruu ", "Dractipuhrr ", "Zerkill ", "Nehsayyy ", "Nehsay! ", "Shwoo ", "Drihaghribar ", "Darhcofort ", "Drah ", "Drehhh ", "Rorhsawhhh! ", "Kazoo ", "Drandahhh ", "Drandahhhhr ", "Mahtashi ", "Tugarhhh ", "Pooguh ", "Drougoh!!! ", "Nuvoo ", "Tenuvohh ", "Zirkih ", "Zerkiproof ", "Dilubohhhh ", "Zotain ", "Mosakah ", "Zammis ", "Coz ", "Vasso ", "Deriba ", "Chigravorr ", "Yesaly ", "Trahs ", "Telo ", "Tras ", "Vatran ", "Dilubohhh "]
 }
 
 export default drac

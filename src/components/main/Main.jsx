@@ -1,19 +1,23 @@
 import React, { Component } from 'react'
 import './Main.scss'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
+import drac from '../../assets/javascript/drac'
 
 class Main extends Component {
   constructor() {
     super()
-
+    this._words = drac.words
+    this._sentences = drac.sentences
     this.state = {
       selectedOption: 'paragraphs',
       active: true,
       number: 1,
-      text: "ipsum dolor sit amet consectetur adipisicing elit. Iure ad mollitia distinctio debitis dolor!ipsum dolor sit amet consectetur adipisicing elit. Iure ad mollitia distinctio debitis dolor!ipsum dolor sit amet consectetur adipisicing elit. Iure ad mollitia distinctio debitis dolor!ipsum dolor sit amet consectetur adipisicing elit. Iure ad mollitia distinctio debitis dolor!ipsum dolor sit amet consectetur adipisicing elit. Iure ad mollitia distinctio debitis dolor!ipsum dolor sit amet consectetur adipisicing elit. Iure ad mollitia distinctio debitis dolor!ipsum dolor sit amet consectetur adipisicing elit. Iure ad mollitia distinctio debitis dolor!ipsum dolor sit amet consectetur adipisicing elit. Iure ad mollitia distinctio debitis dolor!ipsum dolor sit amet consectetur adipisicing elit. Iure ad mollitia distinctio debitis dolor!ipsum dolor sit amet consectetur adipisicing elit. Iure ad mollitia distinctio debitis dolor!ipsum dolor sit amet consectetur adipisicing elit. Iure ad mollitia distinctio debitis dolor!ipsum dolor sit amet consectetur adipisicing elit. Iure ad mollitia distinctio debitis dolor!ipsum dolor sit amet consectetur adipisicing elit. Iure ad mollitia distinctio debitis dolor!"
+      text: this._sentences[Math.floor(Math.random() * this._sentences.length)],
+      copied: false,
     }
     this.handleOptionChange = this.handleOptionChange.bind(this)
     this.handleNumberChange = this.handleNumberChange.bind(this)
+    this.changeCopyState = this.changeCopyState.bind(this)
   }
 
   handleOptionChange(evt) {
@@ -28,7 +32,15 @@ class Main extends Component {
     })
   }
 
+  changeCopyState(evt) {
+    evt.preventDefault()
+    this.setState({copied: true}, () => {
+      setTimeout(() => this.setState({copied: false}), 2000);
+    })
+  }
+
   render() {
+    const buttonCopyStatus = !this.state.copied ?  `copy ${this.state.selectedOption}` : "text copied"
     console.log(this.state.number)
     return (
       <main className="Main">
@@ -96,9 +108,9 @@ class Main extends Component {
           >
             <button
               className="btn-copy"
-              onClick={(evt)=>evt.preventDefault()}
+              onClick={this.changeCopyState}
             >
-              {`Copy ${this.state.selectedOption}`}
+              {buttonCopyStatus}
             </button>
           </CopyToClipboard>
         </form>
