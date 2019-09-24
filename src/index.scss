@@ -20,6 +20,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: $bg-color;
+  display: flex;
+  flex-direction: column;
 }
 
 ul,
@@ -37,4 +39,9 @@ p {
   color: $text;
   font-size: 1.6em;
   line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: $purple;
 }
