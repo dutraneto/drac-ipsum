@@ -10,7 +10,7 @@ class Main extends Component {
       selectedOption: 'paragraphs',
       active: true,
       number: 1,
-      text: "ipsum dolor sit amet consectetur adipisicing elit. Iure ad mollitia distinctio debitis dolor!"
+      text: "ipsum dolor sit amet consectetur adipisicing elit. Iure ad mollitia distinctio debitis dolor!ipsum dolor sit amet consectetur adipisicing elit. Iure ad mollitia distinctio debitis dolor!ipsum dolor sit amet consectetur adipisicing elit. Iure ad mollitia distinctio debitis dolor!ipsum dolor sit amet consectetur adipisicing elit. Iure ad mollitia distinctio debitis dolor!ipsum dolor sit amet consectetur adipisicing elit. Iure ad mollitia distinctio debitis dolor!ipsum dolor sit amet consectetur adipisicing elit. Iure ad mollitia distinctio debitis dolor!ipsum dolor sit amet consectetur adipisicing elit. Iure ad mollitia distinctio debitis dolor!ipsum dolor sit amet consectetur adipisicing elit. Iure ad mollitia distinctio debitis dolor!ipsum dolor sit amet consectetur adipisicing elit. Iure ad mollitia distinctio debitis dolor!ipsum dolor sit amet consectetur adipisicing elit. Iure ad mollitia distinctio debitis dolor!ipsum dolor sit amet consectetur adipisicing elit. Iure ad mollitia distinctio debitis dolor!ipsum dolor sit amet consectetur adipisicing elit. Iure ad mollitia distinctio debitis dolor!ipsum dolor sit amet consectetur adipisicing elit. Iure ad mollitia distinctio debitis dolor!"
     }
     this.handleOptionChange = this.handleOptionChange.bind(this)
     this.handleNumberChange = this.handleNumberChange.bind(this)

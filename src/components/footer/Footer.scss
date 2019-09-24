@@ -1,0 +1,40 @@
+@import "../variables";
+
+.Footer {
+  flex-shrink: 0;
+  background-color: darken($bg-color, 3%);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 4rem;
+  height: 100px;
+
+  p {
+    color: $green;
+    text-align: center;
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    font-weight: bold;
+
+    a {
+      margin-left: 15px;
+    }
+
+    .credits {
+      &:hover {
+        color: lighten($purple, 10%);
+      }
+    }
+
+    .github {
+      width: 2.5rem;
+      height: 2.5rem;
+      fill: $green;
+
+      &:hover {
+        fill: lighten($green, 10%);
+      }
+    }
+  }
+}

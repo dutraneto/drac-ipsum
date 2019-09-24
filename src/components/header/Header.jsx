@@ -3,9 +3,6 @@ import './Header.scss'
 import hero from '../../images/hero.jpg'
 
 class Hero extends Component {
-	constructor(props) {
-		super(props)
-	}
 	render() {
 		return (
 			<header className="Header">
