@@ -9,10 +9,10 @@ class Main extends Component {
     this._words = drac.words
     this._sentences = drac.sentences
     this.state = {
-      selectedOption: 'paragraphs',
-      active: true,
-      number: 1,
-      text: this._sentences[Math.floor(Math.random() * this._sentences.length)],
+      selectedOption: 'words',
+      active: false,
+      numberOfInputs: 1,
+      text: this._words[0],
       copied: false,
     }
     this.handleOptionChange = this.handleOptionChange.bind(this)
@@ -23,13 +23,14 @@ class Main extends Component {
   handleOptionChange(evt) {
     this.setState({
       selectedOption: evt.target.value,
-    })
+    }, () => this.generateWords(this.state.selectedOption === 'words' ? this._words : this._sentences))
   }
 
   handleNumberChange(evt) {
     this.setState({
-      number: evt.target.value
-    })
+      numberOfInputs: evt.target.value,
+    }, () => this.generateWords(this.state.selectedOption === 'words' ? this._words : this._sentences))
+
   }
 
   changeCopyState(evt) {
@@ -39,12 +40,21 @@ class Main extends Component {
     })
   }
 
+  generateWords(stateOfWordsOrSentences) {
+    let { numberOfInputs } = this.state
+    let arrOfWords = []
+    for(let i = 1; i <= numberOfInputs; i++) {
+      arrOfWords.push(stateOfWordsOrSentences[Math.floor(Math.random() * stateOfWordsOrSentences.length)])
+    }
+    this.setState({text: [...arrOfWords]})
+  }
+
   render() {
     const buttonCopyStatus = !this.state.copied ?  `copy ${this.state.selectedOption}` : "text copied"
-    console.log(this.state.number)
+
     return (
       <main className="Main">
-        <h2>Generate Drac Ipsum</h2>
+        <h2>Generate Your Drac Ipsum</h2>
         <form className="form" action="">
           <div className="form__input">
             <div className="form__group">
@@ -53,7 +63,8 @@ class Main extends Component {
                 className="form__group-number"
                 type="number"
                 name=""
-                defaultValue={this.state.number}
+                value={this.state.numberOfInputs}
+                min="1"
                 onChange={this.handleNumberChange}
               />
             </div>
