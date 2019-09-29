@@ -1,4 +1,6 @@
 const drac = {
+  mainParagraph : "Yesaly trahs telo tras vatran da telo ovoh dilugohhh! You know the old saying... if at final you don't succeed, try, try again. Davidge, you learn this from great Drac teacher Shismarh? - No, from Mickey Mouse. Who? Mickey Mous-s-s-se. - Is this a great Earthman teacher? - Sort of. -So you think humans are ugly, huh? -Compared to a Drac, very ugly. But that thing out there was even more ugly than you. ",
+
   sentences: [
     "Grah boteron earthman hhh... ",
     "Burn, your son of a mother. ",

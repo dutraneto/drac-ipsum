@@ -6,13 +6,13 @@ import drac from '../../assets/javascript/drac'
 class Main extends Component {
   constructor() {
     super()
-    this._words = drac.words
-    this._sentences = drac.sentences
+    this._sentences = [...drac.sentences]
+    this._words = [...drac.words]
     this.state = {
-      selectedOption: 'words',
+      selectedOption: 'paragraphs',
       active: false,
       numberOfInputs: 1,
-      text: this._words[0],
+      text: [...drac.mainParagraph],
       copied: false,
     }
     this.handleOptionChange = this.handleOptionChange.bind(this)
@@ -20,20 +20,23 @@ class Main extends Component {
     this.changeCopyState = this.changeCopyState.bind(this)
   }
 
+  // TODO: refactor code
   handleOptionChange(evt) {
     this.setState({
       selectedOption: evt.target.value,
-    }, () => this.generateWords(this.state.selectedOption === 'words' ? this._words : this._sentences))
+    }, () => this.generateWords(this.state.selectedOption === 'words' ? this._words : this.state.selectedOption === 'sentences' ? this._sentences : this._sentences))
   }
 
+  // TODO: refactor code
   handleNumberChange(evt) {
     this.setState({
       numberOfInputs: evt.target.value,
-    }, () => this.generateWords(this.state.selectedOption === 'words' ? this._words : this._sentences))
+    }, () => this.generateWords(this.state.selectedOption === 'words' ? this._words : this.state.selectedOption === 'sentences' ? this._sentences : this._sentences))
 
   }
 
   changeCopyState(evt) {
+    // avoid re-render html
     evt.preventDefault()
     this.setState({copied: true}, () => {
       setTimeout(() => this.setState({copied: false}), 2000);
@@ -41,17 +44,36 @@ class Main extends Component {
   }
 
   generateWords(stateOfWordsOrSentences) {
-    let { numberOfInputs } = this.state
-    let arrOfWords = []
-    for(let i = 1; i <= numberOfInputs; i++) {
-      arrOfWords.push(stateOfWordsOrSentences[Math.floor(Math.random() * stateOfWordsOrSentences.length)])
+    const { selectedOption, numberOfInputs } = this.state
+    let textToRender = []
+    if(selectedOption==="paragraphs") {
+      for(let i = 1; i <= numberOfInputs; i++) {
+        textToRender.push(this.generateOneParagraph())
+      }
+      this.setState({text: [...textToRender]})
+      return
     }
-    this.setState({text: [...arrOfWords]})
+    for(let i = 1; i <= numberOfInputs; i++) {
+      textToRender.push(stateOfWordsOrSentences[Math.floor(Math.random() * stateOfWordsOrSentences.length)])
+    }
+    this.setState({text: [...textToRender]})
+  }
+
+  generateOneParagraph() {
+    let oneParagraph = ""
+    for(let i = 0; i < 5; i++ ) {
+      oneParagraph = oneParagraph + this._sentences[Math.floor(Math.random() * this._sentences.length)]
+    }
+    return oneParagraph
   }
 
   render() {
-    const buttonCopyStatus = !this.state.copied ?  `copy ${this.state.selectedOption}` : "text copied"
+    const { selectedOption, numberOfInputs, text, copied } = this.state
+    const buttonCopyStatus = !copied ? `copy ${selectedOption}` : `${selectedOption} copied`
+    const [paragraphs, sentences, words] = [selectedOption==='paragraphs', selectedOption==='sentences', selectedOption==='words']
+    const moreThanOneParagraph = paragraphs && numberOfInputs > 1
 
+    // TODO: Separate form in a new Component
     return (
       <main className="Main">
         <h2>Generate Your Drac Ipsum</h2>
@@ -63,48 +85,60 @@ class Main extends Component {
                 className="form__group-number"
                 type="number"
                 name=""
-                value={this.state.numberOfInputs}
+                value={numberOfInputs}
                 min="1"
                 onChange={this.handleNumberChange}
               />
             </div>
             <div className="form__group">
-              <label className={`form__group-label ${this.state.selectedOption === 'paragraphs' ? ' active' : ""} `} htmlFor="input-paragraphs">
+              <label
+                className={`form__group-label
+                ${paragraphs ? ' active' : ""} `}
+                htmlFor="input-paragraphs"
+              >
                 <input
                   id="input-paragraphs"
                   className="form__group-text"
                   type="radio"
                   name="chosen"
                   value="paragraphs"
-                  checked={this.state.selectedOption === 'paragraphs'}
+                  checked={paragraphs}
                   onChange={this.handleOptionChange}
                 />
                 Paragraphs
               </label>
             </div>
             <div className="form__group">
-              <label className={`form__group-label ${this.state.selectedOption === 'sentences' ? ' active' : ""} `} htmlFor="input-sentences">
+              <label
+                className={`form__group-label
+                ${sentences ? ' active' : ""} `}
+                htmlFor="input-sentences"
+              >
                 <input
                   id="input-sentences"
                   className="form__group-text"
                   type="radio"
                   name="chosen"
                   value="sentences"
-                  checked={this.state.selectedOption === 'sentences'}
+                  checked={sentences}
                   onChange={this.handleOptionChange}
                 />
                 Sentences
               </label>
             </div>
             <div className="form__group">
-              <label className={`form__group-label ${this.state.selectedOption === 'words' ? ' active' : ""} `} htmlFor="input-words">
+              <label
+                className={`form__group-label
+                ${words ? ' active' : ""} `}
+                htmlFor="input-words"
+              >
                 <input
                   id="input-words"
                   className="form__group-text"
                   type="radio"
                   name="chosen"
                   value="words"
-                  checked={this.state.selectedOption === 'words'}
+                  checked={words}
                   onChange={this.handleOptionChange}
                 />
                 Words
@@ -112,15 +146,19 @@ class Main extends Component {
             </div>
           </div>
           <div className="form__results">
-            <p>{this.state.text}</p>
+            {
+              moreThanOneParagraph ? text.map((t, index) => {
+                return (
+                  <div key={index}>
+                    <p>{t}</p>
+                    <br/>
+                  </div>
+                )
+              }) : <p>{text.join("")}</p>
+            }
           </div>
-          <CopyToClipboard
-            text={this.state.text}
-          >
-            <button
-              className="btn-copy"
-              onClick={this.changeCopyState}
-            >
+          <CopyToClipboard text={text}>
+            <button className="btn-copy" onClick={this.changeCopyState}>
               {buttonCopyStatus}
             </button>
           </CopyToClipboard>
