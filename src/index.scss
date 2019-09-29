@@ -21,6 +21,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: $bg-color;
   display: flex;
+  min-height: 100vh;
   flex-direction: column;
 }
 
@@ -31,7 +32,7 @@ li {
 }
 
 ::selection {
-  background-color: $purple;
+  background-color: $green;
   color: #fff;
 }
 
