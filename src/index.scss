@@ -1,7 +1,21 @@
 @import './components/variables';
+@import './components/mixins';
 
 html {
   font-size: 62.5%;
+  transition: all 0.5s;
+
+  @include respond(tab-port) {
+    font-size: 50%;
+  }
+
+  @include respond(tab-land) {
+    font-size: 56.25%;
+  }
+
+  @include respond(big-desktop) {
+    font-size: 100%;
+  }
 }
 
 *,
@@ -21,7 +35,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: $bg-color;
   display: flex;
-  min-height: 100vh;
   flex-direction: column;
 }
 

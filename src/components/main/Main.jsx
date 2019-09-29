@@ -12,7 +12,7 @@ class Main extends Component {
       selectedOption: 'paragraphs',
       active: false,
       numberOfInputs: 1,
-      text: [...drac.mainParagraph],
+      text: [drac.mainParagraph],
       copied: false,
     }
     this.handleOptionChange = this.handleOptionChange.bind(this)
