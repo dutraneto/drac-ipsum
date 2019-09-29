@@ -7,9 +7,7 @@ class Main extends Component {
   constructor() {
     super()
     this._sentences = [...drac.sentences]
-    console.log(this._sentences)
     this._words = [...drac.words]
-    console.log(this._words)
     this.state = {
       selectedOption: 'paragraphs',
       active: false,

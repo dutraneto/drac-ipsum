@@ -13,6 +13,12 @@
   &__img {
     max-width: 100%;
     height: auto;
+
+    @include respond(big-desktop) {
+      width: 100vw;
+      min-height: 100vh;
+      object-fit: cover;
+    }
   }
 
   &__heading {

@@ -20,6 +20,10 @@
     padding: 4rem 3%;
   }
 
+  @include respond(big-desktop) {
+    padding: 10rem 25%;
+  }
+
   h2 {
     text-align: center;
     color: $green;
