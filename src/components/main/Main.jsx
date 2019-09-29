@@ -19,6 +19,7 @@ class Main extends Component {
     this.handleNumberChange = this.handleNumberChange.bind(this)
     this.changeCopyState = this.changeCopyState.bind(this)
   }
+  // TODO: Change methods for arrow functions
 
   // TODO: refactor code
   handleOptionChange(evt) {
@@ -145,6 +146,7 @@ class Main extends Component {
               </label>
             </div>
           </div>
+          {/* TODO: change that div to textfield */}
           <div className="form__results">
             {
               moreThanOneParagraph ? text.map((t, index) => {
