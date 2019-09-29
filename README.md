@@ -14,8 +14,10 @@ Drac Ipsum is a Javascript Lorem Ipsum dummy generator created based on an old S
 
 #### Tablet
 
-![](docs/ipad.jpg =100x200)
+<img src="./docs/ipad.jpg" alt="tablet"
+	title="tablet" width="500" />
 
 #### Smartphone
 
-![](docs/iphone.jpg =250x500)
+<img src="./docs/iphone.jpg" alt="iphone"
+	title="iphone" width="300" />
