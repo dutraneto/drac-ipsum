@@ -1,4 +1,5 @@
 @import '../variables';
+@import '../mixins';
 
 .Main {
   display: flex;
@@ -7,10 +8,17 @@
   justify-content: center;
   padding: 7rem 15%;
   width: 100%;
-  height: 100vh;
   background-color: $bg-color;
   position: relative;
   flex: 1 0 auto;
+
+  @include respond(tab-land) {
+    padding: 5rem 5%;
+  }
+
+  @include respond(tab-port) {
+    padding: 4rem 3%;
+  }
 
   h2 {
     text-align: center;
@@ -19,10 +27,15 @@
     font-size: 3.75rem;
     letter-spacing: 3px;
     z-index: 10;
+
+    @include respond(tab-port) {
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+    }
   }
 
   .form {
-    margin-top: 6rem;
+    margin-top: 4rem;
     height: auto;
 
     &__input {
@@ -61,8 +74,17 @@
         font-size: 1.5em;
         font-weight: bold;
 
+        @include respond(tab-port) {
+          padding: 1.25rem 0;
+          border: 2px solid $purple;
+        }
+
         &:focus {
           outline: solid darken($purple, 10%) 3px !important;
+
+          @include respond(tab-port) {
+            outline: solid darken($purple, 10%) 1px !important;
+          }
         }
       }
 
@@ -70,6 +92,15 @@
         width: 100%;
         text-align: center;
         background-color: transparent;
+
+        @include respond(tab-port) {
+          padding: 1.125rem 0;
+          // to avoid weird border-radius behavior on devices
+          border-radius: 0;
+          // to avoid auto zoom on devices
+          font-size: 16px;
+        }
+
       }
 
       .active {
@@ -84,6 +115,11 @@
       width: 100%;
       height: 350px;
       border: 3px solid $purple;
+
+      @include respond(tab-port) {
+        padding: 1.25rem;
+        border: 2px solid $purple;
+      }
     }
   }
 }
@@ -98,6 +134,10 @@
   transform: translate(3px, -3px);
   cursor: pointer;
   font-size: 1.2rem;
+
+  @include respond(tab-port) {
+    width: calc(50% - 6px);
+  }
 
   &:focus {
     outline: solid darken($purple, 10%) 3px !important;

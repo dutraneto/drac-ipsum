@@ -7,12 +7,14 @@ class Main extends Component {
   constructor() {
     super()
     this._sentences = [...drac.sentences]
+    console.log(this._sentences)
     this._words = [...drac.words]
+    console.log(this._words)
     this.state = {
       selectedOption: 'paragraphs',
       active: false,
       numberOfInputs: 1,
-      text: [...drac.mainParagraph],
+      text: [drac.mainParagraph],
       copied: false,
     }
     this.handleOptionChange = this.handleOptionChange.bind(this)

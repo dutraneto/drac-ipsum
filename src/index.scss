@@ -1,7 +1,17 @@
 @import './components/variables';
+@import './components/mixins';
 
 html {
   font-size: 62.5%;
+  transition: all 0.5s;
+
+  @include respond(tab-port) {
+    font-size: 50%;
+  }
+
+  @include respond(tab-land) {
+    font-size: 56.25%;
+  }
 }
 
 *,
