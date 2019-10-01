@@ -1,6 +1,13 @@
 {
-  "short_name": "Drac Ipsum",
   "name": "Drac Ipsum",
+  "short_name": "Drac Ipsum",
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "display": "standalone",
+  "Scope": "/",
+  "start_url": "/",
+  "lang": "English",
+  "orientation": "any",
   "icons": [{
     "src": "icons/android-icon-36x36.png",
     "sizes": "36x36",
@@ -37,8 +44,5 @@
     "type": "image\/png",
     "density": "4.0"
   }],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "splash_pages": null
 }
