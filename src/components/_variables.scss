@@ -8,5 +8,8 @@ $neon: #faed27;
 // fonts
 @font-face {
   font-family: Blanka;
-  src: url(../../src/assets/fonts/Blanka-Regular.ttf);
+  src: url(../../src/assets/fonts/Blanka-Regular.ttf) format('truetype'),
+    url(../../src/assets/fonts/Blanka-Regular.otf) format('otf');
+  font-weight: normal;
+  font-style: normal;
 }
