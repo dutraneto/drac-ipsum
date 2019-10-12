@@ -15,28 +15,20 @@ class Main extends Component {
       text: [drac.mainParagraph],
       copied: false,
     }
-    this.handleOptionChange = this.handleOptionChange.bind(this)
-    this.handleNumberChange = this.handleNumberChange.bind(this)
-    this.changeCopyState = this.changeCopyState.bind(this)
   }
-  // TODO: Change methods for arrow functions
 
-  // TODO: refactor code
-  handleOptionChange(evt) {
+  handleOptionChange = (evt) =>
     this.setState({
       selectedOption: evt.target.value,
     }, () => this.generateWords(this.state.selectedOption === 'words' ? this._words : this.state.selectedOption === 'sentences' ? this._sentences : this._sentences))
-  }
 
   // TODO: refactor code
-  handleNumberChange(evt) {
+  handleNumberChange = (evt) =>
     this.setState({
       numberOfInputs: evt.target.value,
     }, () => this.generateWords(this.state.selectedOption === 'words' ? this._words : this.state.selectedOption === 'sentences' ? this._sentences : this._sentences))
 
-  }
-
-  changeCopyState(evt) {
+  changeCopyState = (evt) => {
     // avoid re-render html
     evt.preventDefault()
     this.setState({copied: true}, () => {
@@ -44,7 +36,7 @@ class Main extends Component {
     })
   }
 
-  generateWords(stateOfWordsOrSentences) {
+  generateWords = (stateOfWordsOrSentences) => {
     const { selectedOption, numberOfInputs } = this.state
     let textToRender = []
     if(selectedOption==="paragraphs") {
@@ -60,7 +52,7 @@ class Main extends Component {
     this.setState({text: [...textToRender]})
   }
 
-  generateOneParagraph() {
+  generateOneParagraph = () => {
     let oneParagraph = ""
     for(let i = 0; i < 5; i++ ) {
       oneParagraph = oneParagraph + this._sentences[Math.floor(Math.random() * this._sentences.length)]
