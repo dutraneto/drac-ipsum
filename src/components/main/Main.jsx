@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Main.scss'
-import { CopyToClipboard } from 'react-copy-to-clipboard'
 import drac from '../../assets/javascript/drac'
+import Form from '../form/Form'
 
 class Main extends Component {
   constructor() {
@@ -70,93 +70,20 @@ class Main extends Component {
     return (
       <main className="Main">
         <h2>Generate Your Drac Ipsum</h2>
-        <form className="form" action="">
-          <div className="form__input">
-            <div className="form__group">
-              <input
-                id="input-number"
-                className="form__group-number"
-                type="number"
-                name=""
-                value={numberOfInputs}
-                min="1"
-                onChange={this.handleNumberChange}
-              />
-            </div>
-            <div className="form__group">
-              <label
-                className={`form__group-label
-                ${paragraphs ? ' active' : ""} `}
-                htmlFor="input-paragraphs"
-              >
-                <input
-                  id="input-paragraphs"
-                  className="form__group-text"
-                  type="radio"
-                  name="chosen"
-                  value="paragraphs"
-                  checked={paragraphs}
-                  onChange={this.handleOptionChange}
-                />
-                Paragraphs
-              </label>
-            </div>
-            <div className="form__group">
-              <label
-                className={`form__group-label
-                ${sentences ? ' active' : ""} `}
-                htmlFor="input-sentences"
-              >
-                <input
-                  id="input-sentences"
-                  className="form__group-text"
-                  type="radio"
-                  name="chosen"
-                  value="sentences"
-                  checked={sentences}
-                  onChange={this.handleOptionChange}
-                />
-                Sentences
-              </label>
-            </div>
-            <div className="form__group">
-              <label
-                className={`form__group-label
-                ${words ? ' active' : ""} `}
-                htmlFor="input-words"
-              >
-                <input
-                  id="input-words"
-                  className="form__group-text"
-                  type="radio"
-                  name="chosen"
-                  value="words"
-                  checked={words}
-                  onChange={this.handleOptionChange}
-                />
-                Words
-              </label>
-            </div>
-          </div>
-          {/* TODO: change that div to textfield */}
-          <div className="form__results">
-            {
-              moreThanOneParagraph ? text.map((t, index) => {
-                return (
-                  <div key={index}>
-                    <p>{t}</p>
-                    <br/>
-                  </div>
-                )
-              }) : <p>{text.join("")}</p>
-            }
-          </div>
-          <CopyToClipboard text={text}>
-            <button className="btn-copy" onClick={this.changeCopyState}>
-              {buttonCopyStatus}
-            </button>
-          </CopyToClipboard>
-        </form>
+        <Form
+            numberOfInputs={numberOfInputs}
+            selectedOption={selectedOption}
+            text={text}
+            copied={copied}
+            buttonCopyStatus={buttonCopyStatus}
+            paragraphs={paragraphs}
+            sentences={sentences}
+            words={words}
+            moreThanOneParagraph={moreThanOneParagraph}
+            handleNumberChange={this.handleNumberChange}
+            handleOptionChange={this.handleOptionChange}
+            changeCopyState={this.changeCopyState}
+        />
       </main>
     )
   }
