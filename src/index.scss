@@ -2,56 +2,56 @@
 @import './components/mixins';
 
 html {
-  font-size: 62.5%;
-  transition: all 0.5s;
+    font-size: 62.5%;
+    transition: all 0.5s;
 
-  @include respond(tab-port) {
-    font-size: 50%;
-  }
+    @include respond(tab-port) {
+        font-size: 50%;
+    }
 
-  @include respond(tab-land) {
-    font-size: 56.25%;
-  }
+    @include respond(tab-land) {
+        font-size: 56.25%;
+    }
 
-  @include respond(big-desktop) {
-    font-size: 100%;
-  }
+    @include respond(big-desktop) {
+        font-size: 100%;
+    }
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
-  margin: 0;
-  padding: 0;
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
-  color: $bg-color;
-  display: flex;
-  flex-direction: column;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    color: $bg-color;
+    display: flex;
+    flex-direction: column;
 }
 
 ul,
 ol,
 li {
-  list-style: none;
+    list-style: none;
 }
 
 ::selection {
-  background-color: $green;
-  color: #fff;
+    background-color: $green;
+    color: #fff;
 }
 
 p {
-  color: $text;
-  font-size: 1.6em;
-  line-height: 1.6;
+    color: $text;
+    font-size: 1.6em;
+    line-height: 1.6;
 }
 
 a {
-  text-decoration: none;
-  color: $purple;
+    text-decoration: none;
+    color: $purple;
 }

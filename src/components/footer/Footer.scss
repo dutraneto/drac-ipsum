@@ -1,46 +1,46 @@
-@import "../variables";
-@import "../mixins";
+@import '../variables';
+@import '../mixins';
 
 .Footer {
-  flex-shrink: 0;
-  background-color: darken($bg-color, 3%);
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 0 4rem;
-  height: 100px;
-
-  @include respond(tab-port) {
-    padding: 0;
-    justify-content: center;
-  }
-
-  p {
-    color: $green;
-    text-align: center;
+    flex-shrink: 0;
+    background-color: darken($bg-color, 3%);
     display: flex;
     justify-content: flex-end;
-    align-content: center;
-    font-weight: bold;
+    align-items: center;
+    padding: 0 4rem;
+    height: 100px;
 
-    a {
-      margin-left: 15px;
+    @include respond(tab-port) {
+        padding: 0;
+        justify-content: center;
     }
 
-    .credits {
-      &:hover {
-        color: lighten($purple, 10%);
-      }
-    }
+    p {
+        color: $green;
+        text-align: center;
+        display: flex;
+        justify-content: flex-end;
+        align-content: center;
+        font-weight: bold;
 
-    .github {
-      width: 2.5rem;
-      height: 2.5rem;
-      fill: $green;
+        a {
+            margin-left: 15px;
+        }
 
-      &:hover {
-        fill: lighten($green, 10%);
-      }
+        .credits {
+            &:hover {
+                color: lighten($purple, 10%);
+            }
+        }
+
+        .github {
+            width: 2.5rem;
+            height: 2.5rem;
+            fill: $green;
+
+            &:hover {
+                fill: lighten($green, 10%);
+            }
+        }
     }
-  }
 }

@@ -24,17 +24,17 @@ class Form extends Component {
                     <div className="form__group">
                         <label
                             className={`form__group-label
-                            ${this.props.paragraphs ? ' active' : ""} `}
+                            ${this.props.paragraphs ? ' active' : ''} `}
                             htmlFor="input-paragraphs"
                         >
                             <input
-                            id="input-paragraphs"
-                            className="form__group-text"
-                            type="radio"
-                            name="chosen"
-                            value="paragraphs"
-                            checked={this.props.paragraphs}
-                            onChange={this.props.handleOptionChange}
+                                id="input-paragraphs"
+                                className="form__group-text"
+                                type="radio"
+                                name="chosen"
+                                value="paragraphs"
+                                checked={this.props.paragraphs}
+                                onChange={this.props.handleOptionChange}
                             />
                             Paragraphs
                         </label>
@@ -42,17 +42,17 @@ class Form extends Component {
                     <div className="form__group">
                         <label
                             className={`form__group-label
-                            ${this.props.sentences ? ' active' : ""} `}
+                            ${this.props.sentences ? ' active' : ''} `}
                             htmlFor="input-sentences"
                         >
                             <input
-                            id="input-sentences"
-                            className="form__group-text"
-                            type="radio"
-                            name="chosen"
-                            value="sentences"
-                            checked={this.props.sentences}
-                            onChange={this.props.handleOptionChange}
+                                id="input-sentences"
+                                className="form__group-text"
+                                type="radio"
+                                name="chosen"
+                                value="sentences"
+                                checked={this.props.sentences}
+                                onChange={this.props.handleOptionChange}
                             />
                             Sentences
                         </label>
@@ -60,40 +60,45 @@ class Form extends Component {
                     <div className="form__group">
                         <label
                             className={`form__group-label
-                            ${this.props.words ? ' active' : ""} `}
+                            ${this.props.words ? ' active' : ''} `}
                             htmlFor="input-words"
                         >
                             <input
-                            id="input-words"
-                            className="form__group-text"
-                            type="radio"
-                            name="chosen"
-                            value="words"
-                            checked={this.props.words}
-                            onChange={this.props.handleOptionChange}
+                                id="input-words"
+                                className="form__group-text"
+                                type="radio"
+                                name="chosen"
+                                value="words"
+                                checked={this.props.words}
+                                onChange={this.props.handleOptionChange}
                             />
                             Words
                         </label>
                     </div>
                 </div>
-          <div className="form__results">
-            {
-              this.props.moreThanOneParagraph ? this.props.text.map((t, index) => {
-                return (
-                  <div key={index}>
-                    <p>{t}</p>
-                    <br/>
-                  </div>
-                )
-              }) : <p>{this.props.text.join("")}</p>
-            }
-          </div>
-          <CopyToClipboard text={this.props.text}>
-            <button className="btn-copy" onClick={this.props.changeCopyState}>
-              {this.props.buttonCopyStatus}
-            </button>
-          </CopyToClipboard>
-        </form>
+                <div className="form__results">
+                    {this.props.moreThanOneParagraph ? (
+                        this.props.text.map((t, index) => {
+                            return (
+                                <div key={index}>
+                                    <p>{t}</p>
+                                    <br />
+                                </div>
+                            )
+                        })
+                    ) : (
+                        <p>{this.props.text.join('')}</p>
+                    )}
+                </div>
+                <CopyToClipboard text={this.props.text}>
+                    <button
+                        className="btn-copy"
+                        onClick={this.props.changeCopyState}
+                    >
+                        {this.props.buttonCopyStatus}
+                    </button>
+                </CopyToClipboard>
+            </form>
         )
     }
 }
