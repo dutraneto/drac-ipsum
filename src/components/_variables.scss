@@ -1,15 +1,15 @@
 // colors
-$bg-color: #020D3F;
-$purple: #6765AE;
-$green: #5BD470;
+$bg-color: #020d3f;
+$purple: #6765ae;
+$green: #5bd470;
 $text: rgb(137, 156, 213);
 $neon: #faed27;
 
 // fonts
 @font-face {
-  font-family: Blanka;
-  src: url(../../src/assets/fonts/Blanka-Regular.ttf) format('truetype'),
-    url(../../src/assets/fonts/Blanka-Regular.otf) format('otf');
-  font-weight: normal;
-  font-style: normal;
+    font-family: Blanka;
+    src: url(../../src/assets/fonts/Blanka-Regular.ttf) format('truetype'),
+        url(../../src/assets/fonts/Blanka-Regular.otf) format('otf');
+    font-weight: normal;
+    font-style: normal;
 }

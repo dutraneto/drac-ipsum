@@ -10,7 +10,7 @@ Drac Ipsum is a Javascript Lorem Ipsum dummy generator created based on an old S
 
 #### Desktop
 
-![](docs/desktop.jpg)
+![](docs/mac.jpg)
 
 #### Tablet
 
